@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: daily_code_buffer_mysql_db
+    image: mysql:8.0.32
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_USERNAME: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: productdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - daily_code_buffer_mysql_db:/var/lib/mysql
+
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    restart: always
+
+  redis:
+    container_name: redis_resilience4j
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  daily_code_buffer_mysql_db:
+    external: false
