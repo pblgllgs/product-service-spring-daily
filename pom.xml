@@ -46,10 +46,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
@@ -107,7 +107,7 @@
 					</from>
 					<to>
 						<image>registry.hub.docker.com/pblgllgs/productservice-dcb</image>
-						<tags>${project.version}</tags>
+						<tags>${project.version}-k8s</tags>
 					</to>
 				</configuration>
 			</plugin>
